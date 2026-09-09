@@ -1,0 +1,4 @@
+# Ignore Cloudflare Workers backend from Vercel Serverless Function scanner
+api
+migrations
+wrangler.toml

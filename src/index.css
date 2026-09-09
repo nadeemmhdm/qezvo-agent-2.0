@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── Neobrutalism Light Theme ── */
+    --background: 45 30% 98%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 243 85% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 48 100% 50%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 45 20% 92%;
+    --muted-foreground: 0 0% 30%;
+
+    --accent: 184 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 354 100% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
+    --ring: 0 0% 0%;
+    --radius: 0.75rem;
+
+    --neo-shadow: 0 0% 0%;
+
+    /* Status colors */
+    --success: 144 88% 54%;
+    --success-foreground: 0 0% 0%;
+    --warning: 48 100% 50%;
+    --warning-foreground: 0 0% 0%;
+    --info: 195 100% 50%;
+    --info-foreground: 0 0% 0%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 243 85% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 48 100% 50%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 0%;
+    --sidebar-ring: 0 0% 0%;
+  }
+
+  .dark {
+    /* ── Neobrutalism Dark Theme ── */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 243 85% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 48 100% 50%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 75%;
+
+    --accent: 184 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 85% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
+    --ring: 0 0% 100%;
+
+    --neo-shadow: 0 0% 100%;
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 243 85% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 18%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 100%;
+    --sidebar-ring: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Neobrutalist high-contrast scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+    border-left: 2px solid hsl(var(--border));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--foreground));
+    border-radius: 0px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary));
+  }
+
+  /* Neobrutalist focus ring */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* ── Neobrutalism Cards & Boxes ── */
+  .neo-box {
+    background-color: hsl(var(--card));
+    border: 2px solid hsl(var(--border));
+    box-shadow: 4px 4px 0px 0px hsl(var(--neo-shadow));
+    border-radius: 1rem;
+  }
+
+  .neo-box-sm {
+    background-color: hsl(var(--card));
+    border: 2px solid hsl(var(--border));
+    box-shadow: 2px 2px 0px 0px hsl(var(--neo-shadow));
+    border-radius: 0.75rem;
+  }
+
+  .neo-box-lg {
+    background-color: hsl(var(--card));
+    border: 3px solid hsl(var(--border));
+    box-shadow: 6px 6px 0px 0px hsl(var(--neo-shadow));
+    border-radius: 1.25rem;
+  }
+
+  /* Neobrutalism interactive click physics */
+  .neo-clickable {
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .neo-clickable:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px 0px hsl(var(--neo-shadow));
+  }
+  .neo-clickable:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px 0px hsl(var(--neo-shadow));
+  }
+
+  /* Sidebar item with Neobrutalism style */
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border: 2px solid transparent;
+    border-radius: 0.75rem;
+    color: hsl(var(--sidebar-foreground));
+    transition: all 0.15s ease;
+  }
+  .sidebar-item:hover {
+    border-color: hsl(var(--sidebar-border));
+    background-color: hsl(var(--sidebar-accent));
+    box-shadow: 3px 3px 0px 0px hsl(var(--sidebar-border));
+    transform: translate(-1px, -1px);
+  }
+  .sidebar-item-active {
+    border-color: hsl(var(--sidebar-border));
+    background-color: hsl(var(--sidebar-primary));
+    color: hsl(var(--sidebar-primary-foreground));
+    box-shadow: 3px 3px 0px 0px hsl(var(--sidebar-border));
+  }
+
+  /* Gradient text (Neobrutal high-contrast) */
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, #FF5E7E 50%, #FFE600 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+  }
+
+  /* Code block */
+  .code-block {
+    background-color: hsl(var(--muted));
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    border: 2px solid hsl(var(--border));
+    box-shadow: 3px 3px 0px 0px hsl(var(--neo-shadow));
+    border-radius: 0.75rem;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .safe-top { padding-top: env(safe-area-inset-top); }
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+}

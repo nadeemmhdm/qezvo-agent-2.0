@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Qezvo Agent — Open-Source AI Agent Builder SaaS</title>
+    <meta name="description" content="Build, train, and deploy intelligent AI agents from your own data with zero chat storage. Developed & managed by Affogato Solutions in Kerala, India. Powered by Ollama Cloud API." />
+    <meta name="keywords" content="Qezvo Agent, AI agent builder, Affogato Solutions, Kerala, India, Ollama Cloud, open source AI, zero retention chatbot" />
+    <meta name="author" content="Affogato Solutions" />
+    <link rel="canonical" href="https://www.qezvo.in" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Automatically reload the page if a dynamically imported chunk fails due to a new deployment
+      window.addEventListener('vite:preloadError', (event) => {
+        console.warn('Vite preload error detected, refreshing for new deployment assets:', event);
+        window.location.reload();
+      });
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="qezvoagent" data-description="Support me on Buy me a coffee!" data-message="Every coffee = a little more code shipped. ❤️" data-color="#FF813F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+  </body>
+</html>
